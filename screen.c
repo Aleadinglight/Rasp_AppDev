@@ -1,37 +1,49 @@
 #include "screen.h"
 #include <stdio.h>
 
-// function definitions
-void clearScreen(void){
-        printf("\033[2J");
-        fflush(stdout);
+// function definition
+int levelize(int i, int lim, int lev){
+	return i/(lim/lev);
 }
 
-void setFGcolor(int fg){        // fg is a value between 30
-        printf("\033[%d;1m", fg);
-        fflush(stdout); // send out the esc sequence
+void setFGcolor(int color){
+	printf("\033[%d;1m", color);
+	fflush(stdout);
 }
 
-void resetColors(void){
-        printf("\033[0m");
-        fflush(stdout);
+void resetcolor(void){
+	printf("\033[0m");
+	fflush(stdout);
 }
 
-void gotoXY(int row, int col){
-        // row number should be 1-30, col should be 1-80
-        printf("\033[%d;%dH", row, col);
-        fflush(stdout);
+void gotoXY(int x, int y){
+	printf("\033[%d;%dH",y,x);
+	fflush(stdout);
 }
 
-void displayBar(int col, double rms){
-        int i;
-        for(i=0; i<rms/20; i++){
-        	gotoXY(i+1, col);
+void displayBar(int col, double rms, int lim, int reso){
+	int i,j,fl = 0,l;
+
+	int rainbow[6] = {RED,YELLOW,GREEN,CYAN,BLUE,MAGENTA};
+
+	j = (int) rms/reso+1;
+
+	if (j>lim) j=lim;
+	for (i=0; i<j; i++){
+		l = levelize(i,lim,5);
+		setFGcolor(rainbow[l]);
+		gotoXY(col,lim-i+2);
 #ifdef UNICODE
-			printf("%s", BAR);
+		printf("%s", UBAR);
 #else
-			printf("*");
+		printf("*");
 #endif
-        }
-        fflush(stdout);
+	}
+	resetcolor();
+	fflush(stdout);
+}
+
+void clrscr(){
+	printf("\033[2J");
+	fflush(stdout);
 }
