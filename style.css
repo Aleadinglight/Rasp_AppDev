@@ -1,0 +1,88 @@
+@keyframes dashoffset-seven {
+  0% {
+    stroke-dashoffset: 7px;
+  }
+  100% {
+    stroke-dashoffset: 0px;
+  }
+}
+
+.ct-chart .ct-series.ct-series-a .ct-line {
+  stroke: #FF6B6B;
+  stroke-width: 3px;
+  stroke-linecap: round;
+  
+}
+.ct-chart .ct-label.ct-vertical,
+.ct-chart .ct-label.ct-horizontal {
+  color: rgba(255, 255, 255, 0.5);
+} 
+.ct-chart .ct-grid.ct-vertical,
+.ct-chart .ct-grid.ct-horizontal {
+  stroke: rgba(255, 255, 255, 0.1);
+  stroke-dasharray: 2px;
+  shape-rendering: crispEdges;
+}
+
+.barbut:hover {
+    background-color:#242837;
+    outline:none;
+    text-align:center;
+    font-size:30px;
+    color:white;
+    font-family:Hack, monospace ;
+    border-style:none;  
+    cursor:pointer;
+}
+
+.barbut{
+    background-color: Transparent;
+    outline:none;
+    text-align:center;
+    font-size:30px;
+    height:85px;
+    width:250px;
+    color:white;
+    font-family:Hack, monospace ;
+    border-style:none;  
+  }
+
+  .between{
+    height:30%;
+    display: block;
+    position: relative;
+    top: 85px;
+  }
+
+  html,body{
+    height: 100%;
+    font-family:Hack, monospace ;
+  }
+
+  .bar {
+    position: absolute;
+    height: 85px;
+    width:100%;
+    font-size:50px;
+    text-align:bottom;
+    color:#fcfcfc;
+    background-color:#2d3345;
+    
+    border: 1px solid #2d3345; 
+    top: 0; 
+    left: 0; 
+    bottom: 0; 
+    left: 0;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  }
+
+select{
+  width: 120px;
+  height: 30px;
+  font-size: 15px;
+  border-style: inset;
+  background-color: #a23434;
+  border-radius: 5px;
+  padding: 3px;
+  border-size:2px;
+}
